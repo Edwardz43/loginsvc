@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package pb;
+option go_package ="../pb";
+
+// The Login service definition.
+service Login {
+  rpc Name (NameRequest) returns (NameReply) {}
+}
+
+// The Name request contains user name.
+message NameRequest {
+  string n = 1;
+}
+
+// The Name response contains the result of the login.
+message NameReply {
+  string v = 1;
+  string err = 2;
+}
