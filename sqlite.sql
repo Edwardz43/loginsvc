@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` TEXT NOT NULL,
+  `sid` TEXT NOT NULL
+);
+
+INSERT INTO `users` (`name`, `sid`) VALUES ('ed', 'a123456789');
