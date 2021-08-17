@@ -1,3 +1,5 @@
 .vs/
 .dist/
 .idea/
+
+config.json
