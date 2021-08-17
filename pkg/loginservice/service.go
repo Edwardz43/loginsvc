@@ -2,6 +2,7 @@ package loginservice
 
 import (
 	"context"
+	"loginsvc/repo"
 
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/metrics"
@@ -23,11 +24,20 @@ func New(logger log.Logger, ints, chars metrics.Counter) Service {
 
 // NewBasicService returns a naïve, stateless implementation of Service.
 func NewBasicService() Service {
-	return basicService{}
+	return basicService{
+		// repo: repo.GetSqliteLoginRepository(),
+		repo: repo.GetMySQLLoginRepo(),
+	}
 }
 
-type basicService struct{}
+type basicService struct {
+	repo repo.LoginRepository
+}
 
-func (s basicService) Name(_ context.Context, N string) (string, error) {
-	return "fake_sid", nil
+func (s basicService) Name(c context.Context, n string) (string, error) {
+	sid, err := s.repo.Name(n)
+	if err != nil {
+		return "", err
+	}
+	return sid, nil
 }

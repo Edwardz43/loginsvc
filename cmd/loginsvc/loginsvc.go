@@ -121,7 +121,7 @@ func main() {
 	{
 		// Business-level metrics.
 		ints = prometheus.NewCounterFrom(stdprometheus.CounterOpts{
-			Namespace: "example",
+			Namespace: "demo",
 			Subsystem: "loginsvc",
 			Name:      "login_name_times",
 			Help:      "Total count of login with username via the Name method.",
@@ -131,7 +131,7 @@ func main() {
 	{
 		// Endpoint-level metrics.
 		duration = prometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
-			Namespace: "example",
+			Namespace: "demo",
 			Subsystem: "loginsvc",
 			Name:      "request_duration_seconds",
 			Help:      "Request duration in seconds.",
