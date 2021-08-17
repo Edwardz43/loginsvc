@@ -1,0 +1,4 @@
+{
+	"sqliteConnStr": "../../demo.db",
+	"mysqlConnStr": "root:asd123@/demo"
+}
